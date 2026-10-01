@@ -12,6 +12,8 @@ def build():
     figtree_license = (FONTS / 'Figtree-OFL.txt').read_text(encoding='utf-8')
     roboto_license = (FONTS / 'Roboto-OFL.txt').read_text(encoding='utf-8')
     replacements = {
+        '/* SEARCH_STYLES */': (ROOT / 'src' / 'search.css').read_text(encoding='utf-8'),
+        '/* SEARCH_SCRIPT */': (ROOT / 'src' / 'search.js').read_text(encoding='utf-8'),
         'FONT_DATA': base64.b64encode((FONTS / 'Figtree.ttf').read_bytes()).decode('ascii'),
         'FONT_LICENSE_VISIBLE': html.escape(figtree_license),
         'FONT_LICENSE': figtree_license.replace('--', '—'),

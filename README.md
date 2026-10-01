@@ -12,6 +12,14 @@ I due HTML sono identici e autonomi: font, stili ed esempi sono incorporati. La 
 
 Usa **Stampa / Salva PDF** nella guida per ottenere una versione impaginata per la stampa. L’aspetto finale può variare leggermente tra browser.
 
+## Cercare un argomento
+
+Premi **Cerca nella guida**, oppure **⌘K** su Mac / **Ctrl+K** su Windows e Linux. Puoi scrivere una domanda, per esempio «Qual è la dimensione minima del body sul web?», oppure un argomento come «tracking dei titoli».
+
+La ricerca mostra i passaggi pertinenti con un estratto del testo. **Invio** o **Vai** apre il primo risultato; puoi anche scegliere un risultato diverso. Il passaggio viene evidenziato nella guida e gli eventuali riepiloghi chiusi si aprono automaticamente. **Esc** chiude la ricerca.
+
+La ricerca funziona offline e riconosce sinonimi e piccoli errori di battitura. Cerca nei contenuti della dispensa: non genera risposte, non invia le domande a servizi esterni e non salva una cronologia. Se non trova un risultato, prova un argomento più breve. Richiede JavaScript e un browser moderno.
+
 ## Contenuti
 
 - Regole di riferimento per corpo, riga e interlinea, anche in valori relativi e percentuali.
@@ -38,8 +46,17 @@ python3 scripts/build.py
 | `index.html` | Guida completa, pronta da aprire o ospitare su un sito statico. |
 | `vademecum-tipografia-ui.html` | Copia identica con nome descrittivo, da condividere. |
 | `src/template.html` | Sorgente HTML, CSS e JavaScript modificabile. |
+| `src/search.js`, `src/search.css` | Ricerca e interfaccia, incorporate negli HTML durante la generazione. |
 | `scripts/build.py` | Generazione dei documenti autonomi. |
 | `assets/fonts/` | Figtree, Roboto e relative licenze. |
+
+I passaggi con `data-search-title` e `data-search-tags` hanno un titolo e parole chiave per la ricerca; il testo viene letto direttamente dalla guida. Gli attributi `id` mantengono stabili i link. Anche nuovi sottotitoli e voci del glossario vengono indicizzati automaticamente.
+
+Per verificare il riconoscimento delle domande, con Node.js installato:
+
+```sh
+node --test tests/search.test.cjs
+```
 
 ## Font e fonti
 
